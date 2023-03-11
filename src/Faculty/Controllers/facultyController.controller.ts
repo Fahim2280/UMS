@@ -126,7 +126,7 @@ export class FacultyController {
 
   //Notice Controller
 
-  @Post('/insertnotice/:id')
+  @Post('/insertnotice')
   @UseGuards(SessionGuard)
   @UseFilters(HttpExceptionFilter)
   @UsePipes(new ValidationPipe())
