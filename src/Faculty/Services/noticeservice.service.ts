@@ -19,18 +19,8 @@ export class NoticeService {
     return this.NoticeRepo.find();
   }
   
-  insertNotice(noticedto: NoticeDto, id: any): any {
-    const notice = new FacultyNotice();
-    notice.subject = noticedto.subject;
-    notice.Details = noticedto.Details;
-    this.NoticeRepo.save(noticedto);
-    const faculty = this.facultyRepo.find({
-      where: { Fid: 2 },
-      relations: {
-        facultyNotices: true,
-      },
-    });
-    faculty.facultyNotices = [...faculty.facultyNotices,notice];
+  insertNotice(noticedto: NoticeDto): any {
+    return this.NoticeRepo.save(noticedto);
   }
 
   updateNotice(noticedto, id): any {
